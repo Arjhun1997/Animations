@@ -20,7 +20,6 @@
 	<script type="text/javascript">
 		var letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		var len=0;
-		var len1=0;
 		var rx;
 		var int="";
 		function randomNumber(max){
@@ -59,24 +58,21 @@
 			 	{	
 					$("#draggable").append(letterElement.text());
 					len++;
-					len1++;
-					if(len>8){
+					if(len%8==0){
 						$("#draggable").append("<br>");
-						len=0;
 					}
 				}
 				letterElement.fadeOut();
 				$("#draggable").css("overflow","scroll");
-				document.getElementById("demo").innerHTML=len1.toString();
+				document.getElementById("demo").innerHTML=len.toString();
 			});
 			$("#stop").click(function(){
 				letterElement.stop();
 			});
 			$("#fullstop").click(function(){
 				clearInterval(int);
-			})
+			});
 		}
-		// $(document).on();
 		int=setInterval(animation,500);
 	</script>
 </head>
